@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { CakeSlice, Menu, ShoppingBag, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,17 +12,18 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <CakeSlice className="h-6 w-6 text-brown-300" />
             <span className="text-xl font-playfair font-semibold text-brown-400">Sweet Delights</span>
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-brown-300 hover:text-brown-400 transition-colors">Home</a>
-            <a href="#about" className="text-brown-300 hover:text-brown-400 transition-colors">About</a>
-            <a href="#cakes" className="text-brown-300 hover:text-brown-400 transition-colors">Our Cakes</a>
-            <a href="#contact" className="text-brown-300 hover:text-brown-400 transition-colors">Contact</a>
+            <Link to="/" className="text-brown-300 hover:text-brown-400 transition-colors">Home</Link>
+            <Link to="/#about" className="text-brown-300 hover:text-brown-400 transition-colors">About</Link>
+            <Link to="/flavors" className="text-brown-300 hover:text-brown-400 transition-colors">Flavors</Link>
+            <Link to="/#cakes" className="text-brown-300 hover:text-brown-400 transition-colors">Our Cakes</Link>
+            <Link to="/#contact" className="text-brown-300 hover:text-brown-400 transition-colors">Contact</Link>
           </div>
 
           {/* CTA */}
@@ -53,34 +55,41 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden pt-4 pb-3 border-t border-cream-200 mt-4 animate-fade-in">
             <div className="flex flex-col space-y-3">
-              <a 
-                href="#home" 
+              <Link 
+                to="/" 
                 className="px-4 py-2 text-brown-300 hover:bg-cream-100 rounded-md"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
-              </a>
-              <a 
-                href="#about" 
+              </Link>
+              <Link 
+                to="/#about" 
                 className="px-4 py-2 text-brown-300 hover:bg-cream-100 rounded-md"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
-              </a>
-              <a 
-                href="#cakes" 
+              </Link>
+              <Link 
+                to="/flavors" 
+                className="px-4 py-2 text-brown-300 hover:bg-cream-100 rounded-md"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Flavors
+              </Link>
+              <Link 
+                to="/#cakes" 
                 className="px-4 py-2 text-brown-300 hover:bg-cream-100 rounded-md"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Our Cakes
-              </a>
-              <a 
-                href="#contact" 
+              </Link>
+              <Link 
+                to="/#contact" 
                 className="px-4 py-2 text-brown-300 hover:bg-cream-100 rounded-md"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact
-              </a>
+              </Link>
               <div className="pt-2">
                 <Button variant="outline" size="sm" className="border-brown-300 text-brown-300 w-full">
                   <ShoppingBag className="h-4 w-4 mr-2" />
